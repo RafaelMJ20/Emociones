@@ -1,0 +1,10 @@
+Flask==3.0.3
+Pillow==11.0.0
+matplotlib==3.10.0
+dlib==19.24.6
+deepface==0.0.93
+numpy==1.26.4
+tensorflow==2.8.0
+keras==2.8.0
+opencv-python==4.10.0.84
+Werkzeug==3.0.2

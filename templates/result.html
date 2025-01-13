@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        img {
+            max-width: 40%; /* Ajustar tamaño de la imagen principal */
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .variations {
+            display: flex; /* Mostrar las variaciones de manera horizontal */
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .variations img {
+            max-width: 50%; /* Tamaño más pequeño para las imágenes adicionales */
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultado de los puntos faciales</h1>
+    <div>
+        <h3>Imagen procesada con puntos faciales</h3>
+        <img src="{{ url_for('static', filename=original_image) }}" alt="Resultado con puntos faciales">
+    </div>
+
+    <div>
+        <h3>Emoción detectada</h3>
+        <!-- Solo se muestra una vez la emoción, en negro -->
+        <p style="font-size: 1.5em; color: #333;">{{ emotion }}</p>
+    </div>
+    
+    <div class="variations">
+        <div>
+            <h4>Girada horizontalmente</h4>
+            <img src="{{ url_for('static', filename=mirrored_image) }}" alt="Imagen girada horizontalmente">
+        </div>
+        <div>
+            <h4>Brillo aumentado</h4>
+            <img src="{{ url_for('static', filename=bright_image) }}" alt="Imagen con brillo aumentado">
+        </div>
+        <div>
+            <h4>De cabeza</h4>
+            <img src="{{ url_for('static', filename=rotated_image) }}" alt="Imagen rotada 180 grados">
+        </div>
+    </div>
+
+    <br>
+    <a href="/">Cargar otra imagen</a>
+</body>
+</html>
